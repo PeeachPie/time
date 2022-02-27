@@ -16,7 +16,7 @@ function changeTime() {
     let date = new Date()
     time.textContent = `${date.getHours()}:${date.getMinutes() > 9 ? date.getMinutes() :'0' + date.getMinutes()}:${date.getSeconds() > 9 ? date.getSeconds() :'0' + date.getSeconds()}`
     day.textContent = `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}, ${days[date.getDay()]} `
-    setTimeout(changeTime, 1000)
+    setTimeout(changeTime, 100)
 }
 
 function changeBg() {
