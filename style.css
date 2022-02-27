@@ -18,7 +18,7 @@ html, body {
 
 .daytime { 
     padding: 3vmin;
-    background-color: rgb(245, 245, 245, 0.3);
+    background-color: rgb(255, 255, 255, 0.2);
     border-radius: 2vmin;
     margin-bottom: 5vmin;
 }
@@ -34,6 +34,6 @@ html, body {
 .button {
     padding: 3vmin;
     font-size: 4vmin;
-    background-color: rgb(245, 245, 245, 0.3);
+    background-color: rgb(255, 255, 255, 0.2);
     border-radius: 6vmin;
 }
