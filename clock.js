@@ -26,9 +26,11 @@ function changeBg() {
         color1 += randomChoice(hex)
         color2 += randomChoice(hex)
     }
-    document.body.style.background = `linear-gradient(to right, ${color1}, ${color2})`
+    document.body.style.background = `linear-gradient(to bottom, ${color1}, ${color2})`
 }
 
 window.addEventListener('load', changeTime)
 button.addEventListener('click', changeBg)
+
+
 
