@@ -15,7 +15,9 @@ function getRandom(min, max) {
 function changeTime() {
     let date = new Date()
     time.textContent = `${date.getHours()}:${date.getMinutes() > 9 ? date.getMinutes() :'0' + date.getMinutes()}:${date.getSeconds() > 9 ? date.getSeconds() :'0' + date.getSeconds()}`
-    day.textContent = `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}, ${days[date.getDay()]} `
+    if (date.getDate() != day.textContent.slice(0,2)){
+      day.textContent = `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}, ${days[date.getDay()]} `
+    }
     setTimeout(changeTime, 100)
 }
 
