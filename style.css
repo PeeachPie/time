@@ -29,8 +29,8 @@ html, body {
 }
 
 .button {
-    padding: 2vmin;
-    font-size: 3vmin;
+    padding: 3vmin;
+    font-size: 4vmin;
     background-color: rgb(245, 245, 245, 0.3);
-    border-radius: 5vmin;
+    border-radius: 6vmin;
 }
