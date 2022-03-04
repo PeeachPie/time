@@ -37,3 +37,11 @@ html, body {
     background-color: rgb(255, 255, 255, 0.2);
     border-radius: 6vmin;
 }
+
+.button:hover{
+    background-color: rgb(255, 255, 255, 0.4);
+}
+
+.button:active {
+    background-color: rgb(255, 255, 255, 0.3);
+}
