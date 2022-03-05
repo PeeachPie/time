@@ -1,6 +1,5 @@
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-const hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
 let button = document.querySelector(".button");
 let time = document.querySelector(".time");
 let day = document.querySelector(".day");
@@ -11,6 +10,14 @@ function getRandom(min, max) {
 }
 function randomChoice(choice) {
   return choice[getRandom(0, choice.length - 1)];
+}
+
+function sum(array) {
+  let result = 0 
+  for (let i = 0; i < array.length; i++) {
+      result += array[i]
+  }
+  return result
 }
 
 function changeTime() {
@@ -24,27 +31,26 @@ function changeTime() {
 }
 
 function changeStyle() {
-  let color1 = "";
-  let color2 = "";
-  for (let i = 0; i < 6; i++) {
-    color1 += randomChoice(hex);
-    color2 += randomChoice(hex);
-  }
-  document.body.style.background = `linear-gradient(to bottom, #${color1}, #${color2})`;
-  changeFb(color1, color2)
+  let colors = randomColors()
+  
+  document.body.style.background = `linear-gradient(to bottom, rgb(${colors[0]}), rgb(${colors[1]}))`;
+  changeFb(colors[0], colors[1])
 }
 
 function changeFb(color1, color2) {
-  let brightness = 0;
-  for (let i = 0; i < 6; i += 2) {
-    brightness +=
-      Number.parseInt("0x" + color1.slice(i, i + 2)) +
-      Number.parseInt("0x" + color2.slice(i, i + 2));
-  }
-  br = Math.round((brightness / 715) * 41);
-  br = br > 41 ? 41 : br;
-  br = br < 21 ? 21 : br;
+  let brightness = sum(color1.split(',').concat(color2.split(',')).map(a => Number.parseInt(a)))
+
+  br = Math.round((brightness / 765) * 40);
+  br = br > 40 ? 40 : br;
+  br = br < 20 ? 20 : br;
+
   container.style.color = `#${br}${br}${br}`;
+}
+
+function randomColors() {
+  return [
+  `${getRandom(0,255)}, ${getRandom(0,255)}, ${getRandom(0,255)}`, 
+  `${getRandom(0,255)}, ${getRandom(0,255)}, ${getRandom(0,255)}`]
 }
 
 window.addEventListener("load", changeTime);
