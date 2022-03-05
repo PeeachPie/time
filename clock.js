@@ -31,28 +31,32 @@ function changeTime() {
 }
 
 function changeStyle() {
-  let colors = randomColors()
-  
+  let colors = randomColors();
+  let brightness = sum(colors[0].split(',').concat(colors[1].split(',')).map(a => Number.parseInt(a)));
   document.body.style.background = `linear-gradient(to bottom, rgb(${colors[0]}), rgb(${colors[1]}))`;
-  changeFb(colors[0], colors[1])
+  container.style.color = fontBrightness(brightness);
 }
 
-function changeFb(color1, color2) {
-  let brightness = sum(color1.split(',').concat(color2.split(',')).map(a => Number.parseInt(a)))
-
+function fontBrightness(brightness) {
   br = Math.round((brightness / 765) * 60);
   br = br > 60 ? 60 : br;
   br = br < 35 ? 35 : br;
 
-  container.style.color = `rgb(${br}, ${br}, ${br})`;
+  return `rgb(${br}, ${br}, ${br})`;
+}
+
+function watchСlarity(brightness) {
+  if (brightness > 765) {
+    return 0.2
+  }
+  return 0.1
 }
 
 function randomColors() {
   return [
   `${getRandom(0,255)}, ${getRandom(0,255)}, ${getRandom(0,255)}`, 
-  `${getRandom(0,255)}, ${getRandom(0,255)}, ${getRandom(0,255)}`]
+  `${getRandom(0,255)}, ${getRandom(0,255)}, ${getRandom(0,255)}`];
 }
 
 window.addEventListener("load", changeTime);
 button.addEventListener("click", changeStyle);
-
