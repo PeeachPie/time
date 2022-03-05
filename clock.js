@@ -40,11 +40,11 @@ function changeStyle() {
 function changeFb(color1, color2) {
   let brightness = sum(color1.split(',').concat(color2.split(',')).map(a => Number.parseInt(a)))
 
-  br = Math.round((brightness / 765) * 40);
-  br = br > 40 ? 40 : br;
-  br = br < 20 ? 20 : br;
+  br = Math.round((brightness / 765) * 60);
+  br = br > 60 ? 60 : br;
+  br = br < 35 ? 35 : br;
 
-  container.style.color = `#${br}${br}${br}`;
+  container.style.color = `rgb(${br}, ${br}, ${br})`;
 }
 
 function randomColors() {
@@ -55,3 +55,4 @@ function randomColors() {
 
 window.addEventListener("load", changeTime);
 button.addEventListener("click", changeStyle);
+
