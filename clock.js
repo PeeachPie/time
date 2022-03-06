@@ -40,7 +40,6 @@ function changeStyle() {
 function fontBrightness(brightness) {
   br = Math.round((brightness / 765) * 60);
   br = br > 60 ? 60 : br;
-  br = br < 35 ? 35 : br;
 
   return `rgb(${br}, ${br}, ${br})`;
 }
