@@ -8,9 +8,6 @@ let container = document.querySelector(".container");
 function getRandom(min, max) {
   return Math.round(Math.random() * (max - min) + min);
 }
-function randomChoice(choice) {
-  return choice[getRandom(0, choice.length - 1)];
-}
 
 function sum(array) {
   let result = 0 
@@ -44,13 +41,6 @@ function fontBrightness(brightness) {
   return `rgb(${br}, ${br}, ${br})`;
 }
 
-function watchСlarity(brightness) {
-  if (brightness > 765) {
-    return 0.2
-  }
-  return 0.1
-}
-
 function randomColors() {
   return [
   `${getRandom(0,255)}, ${getRandom(0,255)}, ${getRandom(0,255)}`, 
@@ -59,3 +49,4 @@ function randomColors() {
 
 window.addEventListener("load", changeTime);
 button.addEventListener("click", changeStyle);
+
